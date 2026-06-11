@@ -1,0 +1,58 @@
+export const projects = [
+  {
+    id: 1,
+    title: "Book Review Website",
+    description: "Website review buku dengan fitur ulasan jujur, ringkas, dan informatif. Dilengkapi sistem komentar antar pengguna.",
+    tags: ["PHP", "MySQL", "HTML", "CSS"],
+    icon: "📚",
+  },
+  {
+    id: 2,
+    title: "Merchandise BLACKPINK Website",
+    description: "Website e-commerce merchandise BLACKPINK dengan koleksi pakaian, aksesori, dan item edisi terbatas.",
+    tags: ["PHP", "MySQL", "CSS"],
+    icon: "🛍️",
+  },
+  {
+    id: 3,
+    title: "SoalBot",
+    description: "Platform AI yang mengubah materi pembelajaran menjadi soal pilihan ganda dan esai secara otomatis.",
+    tags: ["Python", "Streamlit", "AI"],
+    icon: "🤖",
+  },
+  {
+    id: 4,
+    title: "Marketing Promotion Response DSS",
+    description: "Sistem Pendukung Keputusan berbasis Data Mining dan Machine Learning untuk memprediksi respons promosi pelanggan.",
+    tags: ["Python", "XGBoost", "TOPSIS"],
+    icon: "📊",
+  },
+  {
+    id: 5,
+    title: "VigiVault — Vigenere Cipher",
+    description: "Aplikasi enkripsi teks dan file menggunakan algoritma Vigenere Cipher dengan dua mode: klasik (A-Z) dan byte-wise (0-255).",
+    tags: ["Python", "Cryptography"],
+    icon: "🔐",
+  },
+  {
+    id: 6,
+    title: "MCDM Calculator",
+    description: "Aplikasi DSS untuk Multi Criteria Decision Making menggunakan SAW, WP, AHP, dan TOPSIS.",
+    tags: ["Python", "Streamlit", "DSS"],
+    icon: "⚖️",
+  },
+  {
+    id: 7,
+    title: "Segmentasi Riset Mahasiswa FMIPA",
+    description: "Analisis kesiapan riset mahasiswa menggunakan K-Means, DBSCAN, dan Hierarchical Clustering.",
+    tags: ["Python", "Scikit-Learn", "Clustering"],
+    icon: "🔬",
+  },
+  {
+    id: 8,
+    title: "NeoTerra — Sustainable City Simulation",
+    description: "Simulasi interaktif kota berkelanjutan dengan tiga mode: Smart City, Tree Growing, dan Green City Simulator.",
+    tags: ["Python", "Pygame"],
+    icon: "🌆",
+  },
+];
