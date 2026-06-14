@@ -6,28 +6,43 @@ import Image from "next/image";
 export default function ProjectCard({ project }) {
   const [hovered, setHovered] = useState(false);
   const [open, setOpen] = useState(false);
+  const [imgIndex, setImgIndex] = useState(0);
+
+  const images = project.images?.length ? project.images : [];
+  const hasMultiple = images.length > 1;
+
+  const nextImage = () => setImgIndex((i) => (i + 1) % images.length);
+  const prevImage = () => setImgIndex((i) => (i - 1 + images.length) % images.length);
 
   useEffect(() => {
     if (!open) return;
 
     const handleKey = (e) => {
       if (e.key === "Escape") setOpen(false);
+      if (e.key === "ArrowRight" && hasMultiple) nextImage();
+      if (e.key === "ArrowLeft" && hasMultiple) prevImage();
     };
 
     document.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
+  }, [open, hasMultiple]);
+
+  useEffect(() => {
+    if (open) setImgIndex(0);
   }, [open]);
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ position: "relative" }}
+      style={{ position: "relative", height: 340 }}
     >
       {/* CARD */}
       <div
@@ -38,6 +53,10 @@ export default function ProjectCard({ project }) {
           transition: "all 0.3s",
           cursor: "default",
           opacity: hovered ? 0 : 1,
+          height: 340,
+          display: "flex",
+          flexDirection: "column",
+          boxSizing: "border-box",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-6px)";
@@ -54,7 +73,19 @@ export default function ProjectCard({ project }) {
           {project.title}
         </h3>
 
-        <p style={{ color: "#888", lineHeight: 1.7, marginBottom: 20, fontSize: "0.9rem" }}>
+        <p
+          style={{
+            color: "#888",
+            lineHeight: 1.7,
+            marginBottom: 20,
+            fontSize: "0.9rem",
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            flex: 1,
+          }}
+        >
           {project.description}
         </p>
 
@@ -84,7 +115,7 @@ export default function ProjectCard({ project }) {
           background: "#161616",
           border: "1px solid #ff5c8d",
           borderRadius: 8,
-          padding: "1.5rem",
+          padding: "1.25rem",
           display: "flex",
           flexDirection: "column",
           opacity: hovered ? 1 : 0,
@@ -94,6 +125,7 @@ export default function ProjectCard({ project }) {
           zIndex: 5,
           boxShadow: "0 12px 30px rgba(0,0,0,0.5)",
           cursor: "pointer",
+          overflow: "hidden",
         }}
       >
         {/* Image */}
@@ -101,23 +133,27 @@ export default function ProjectCard({ project }) {
           style={{
             position: "relative",
             width: "100%",
-            height: 140,
+            height: 150,
             borderRadius: 6,
             overflow: "hidden",
             background: "#0c0c0c",
-            marginBottom: 14,
+            marginBottom: 12,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
           }}
         >
-          {project.image ? (
+          {images.length > 0 ? (
             <Image
-              src={project.image}
+              src={images[0]}
               alt={project.title}
               fill
-              style={{ objectFit: "cover" }}
+              style={{
+                objectFit: "cover",
+                transform: hovered ? "scale(1.08)" : "scale(1)",
+                transition: "transform 0.4s ease",
+              }}
               sizes="400px"
             />
           ) : (
@@ -128,31 +164,30 @@ export default function ProjectCard({ project }) {
         {/* Title */}
         <h3
           style={{
-            fontSize: "1.05rem",
+            fontSize: "1rem",
             fontWeight: 600,
-            marginBottom: 8,
+            marginBottom: 6,
             color: "white",
+            flexShrink: 0,
+            flex: 1,
           }}
         >
           {project.title}
         </h3>
 
-        {/* Detail */}
-        <p
+        {/* Detail - hidden on hover, only visible in modal popup */}
+        {/* Tags */}
+        <div
           style={{
-            color: "#999",
-            lineHeight: 1.6,
-            marginBottom: 12,
-            fontSize: "0.8rem",
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 6,
+            marginBottom: 10,
+            maxHeight: 56,
             overflow: "hidden",
-            flex: 1,
+            flexShrink: 0,
           }}
         >
-          {project.description}
-        </p>
-
-        {/* Tags */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
           {project.tags.map((tag) => (
             <span
               key={tag}
@@ -162,6 +197,7 @@ export default function ProjectCard({ project }) {
                 fontSize: "0.7rem",
                 color: "#bbb",
                 borderRadius: 4,
+                whiteSpace: "nowrap",
               }}
             >
               {tag}
@@ -185,6 +221,8 @@ export default function ProjectCard({ project }) {
               fontSize: "0.8rem",
               textDecoration: "none",
               transition: "all 0.2s",
+              flexShrink: 0,
+              whiteSpace: "nowrap",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "#ff5c8d";
@@ -213,7 +251,8 @@ export default function ProjectCard({ project }) {
             alignItems: "center",
             justifyContent: "center",
             zIndex: 1000,
-            padding: "40px 20px",
+            padding: "20px",
+            overflow: "hidden",
             animation: "fadeIn 0.25s ease",
           }}
         >
@@ -223,11 +262,13 @@ export default function ProjectCard({ project }) {
               background: "#111",
               border: "1px solid #2a2a2a",
               borderRadius: 16,
-              width: "min(700px, 95vw)",
-              maxHeight: "85vh",
+              width: "min(700px, 100%)",
+              maxHeight: "90vh",
               overflowY: "auto",
+              overflowX: "hidden",
               position: "relative",
               animation: "scaleIn 0.25s ease",
+              boxSizing: "border-box",
             }}
           >
             {/* Close button */}
@@ -264,7 +305,7 @@ export default function ProjectCard({ project }) {
               ✕
             </button>
 
-            {/* Image */}
+            {/* Image slider */}
             <div
               style={{
                 position: "relative",
@@ -278,16 +319,118 @@ export default function ProjectCard({ project }) {
                 justifyContent: "center",
               }}
             >
-              {project.image ? (
+              {images.length > 0 ? (
                 <Image
-                  src={project.image}
-                  alt={project.title}
+                  src={images[imgIndex]}
+                  alt={`${project.title} - ${imgIndex + 1}`}
                   fill
                   style={{ objectFit: "cover" }}
                   sizes="700px"
                 />
               ) : (
                 <span style={{ fontSize: "4rem" }}>{project.icon}</span>
+              )}
+
+              {hasMultiple && (
+                <>
+                  {/* Prev button */}
+                  <button
+                    onClick={prevImage}
+                    aria-label="Previous image"
+                    style={{
+                      position: "absolute",
+                      left: 12,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      width: 36,
+                      height: 36,
+                      borderRadius: "50%",
+                      border: "1px solid #333",
+                      background: "rgba(0,0,0,0.5)",
+                      color: "white",
+                      fontSize: "1.1rem",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "all 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#ff5c8d";
+                      e.currentTarget.style.color = "#ff5c8d";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "#333";
+                      e.currentTarget.style.color = "white";
+                    }}
+                  >
+                    ‹
+                  </button>
+
+                  {/* Next button */}
+                  <button
+                    onClick={nextImage}
+                    aria-label="Next image"
+                    style={{
+                      position: "absolute",
+                      right: 12,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      width: 36,
+                      height: 36,
+                      borderRadius: "50%",
+                      border: "1px solid #333",
+                      background: "rgba(0,0,0,0.5)",
+                      color: "white",
+                      fontSize: "1.1rem",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transition: "all 0.2s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#ff5c8d";
+                      e.currentTarget.style.color = "#ff5c8d";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "#333";
+                      e.currentTarget.style.color = "white";
+                    }}
+                  >
+                    ›
+                  </button>
+
+                  {/* Dots */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 12,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      display: "flex",
+                      gap: 6,
+                    }}
+                  >
+                    {images.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setImgIndex(i)}
+                        aria-label={`Go to image ${i + 1}`}
+                        style={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: "50%",
+                          border: "none",
+                          padding: 0,
+                          cursor: "pointer",
+                          background: i === imgIndex ? "#ff5c8d" : "rgba(255,255,255,0.4)",
+                          transition: "background 0.2s",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </>
               )}
             </div>
 
@@ -298,12 +441,26 @@ export default function ProjectCard({ project }) {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: "1.9rem",
                   fontWeight: 600,
-                  marginBottom: 14,
+                  marginBottom: project.role ? 8 : 14,
                   color: "white",
                 }}
               >
                 {project.title}
               </h3>
+
+              {project.role && (
+                <p
+                  style={{
+                    color: "#ff5c8d",
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.05em",
+                    marginBottom: 14,
+                  }}
+                >
+                  {project.role}
+                </p>
+              )}
 
               <p
                 style={{
