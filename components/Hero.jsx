@@ -117,12 +117,12 @@ export default function Hero() {
         </h1>
 
         <p style={{ color: "#666", letterSpacing: "0.1em", marginBottom: 24 }}>
-          140810230021
+          Teknik Informatika
         </p>
 
         <p style={{ color: "#888", lineHeight: 1.8, maxWidth: 500, marginBottom: 40 }}>
           Mahasiswa Informatika Universitas Padjadjaran dengan minat pada
-          Artificial Intelligence, Machine Learning, dan Web Development.
+          Web Development, UI/UX Design, Artificial Intelligence, dan Machine Learning.
         </p>
 
         <div style={{ display: "flex", gap: 16 }}>

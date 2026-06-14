@@ -48,8 +48,8 @@ const experiences = [
     title: "Vice Head of Public Relation Division - IFest 2025",
     organization: "IFest UNPAD",
     year: "2025",
-    image: "/journey/ifest2.jpg",
-    certificate: "/certificate/ifest2025.jpg",
+    image: "/journey/ifest25.png",
+    certificate: "/certificate/ifest25.jpg",
     description:
       "Led the Public Relations Division in managing external communications, partnerships, and promotional strategies. Coordinated team members, built relationships with sponsors and media partners, and ensured effective dissemination of information to support the success of the event.",
   },
@@ -112,7 +112,7 @@ const experiences = [
     organization: "HIMATIF UNPAD",
     year: "2024",
     image: "/journey/logyter.png",
-    certificate: "/certificate/ifest2025.jpg",
+    certificate: "/journey/logyter.png",
     description:
       "Served as the Master of Ceremony (MC) for community service activities, facilitating event proceedings, engaging participants, and ensuring smooth communication throughout the program. Contributed to creating an interactive and welcoming atmosphere while maintaining the flow of the event.",
   },

@@ -5,6 +5,8 @@ export const projects = [
     description: "Website review buku dengan fitur ulasan jujur, ringkas, dan informatif. Dilengkapi sistem komentar antar pengguna.",
     tags: ["PHP", "MySQL", "HTML", "CSS"],
     icon: "📚",
+    image: "/projects/bandros.png",
+    link: "#",
   },
   {
     id: 2,
@@ -12,6 +14,8 @@ export const projects = [
     description: "Website e-commerce merchandise BLACKPINK dengan koleksi pakaian, aksesori, dan item edisi terbatas.",
     tags: ["PHP", "MySQL", "CSS"],
     icon: "🛍️",
+    image: "/projects/blackpink-merch.png",
+    link: "#",
   },
   {
     id: 3,
@@ -19,6 +23,8 @@ export const projects = [
     description: "Platform AI yang mengubah materi pembelajaran menjadi soal pilihan ganda dan esai secara otomatis.",
     tags: ["Python", "Streamlit", "AI"],
     icon: "🤖",
+    image: "/projects/soalbot.png",
+    link: "#",
   },
   {
     id: 4,
@@ -26,6 +32,8 @@ export const projects = [
     description: "Sistem Pendukung Keputusan berbasis Data Mining dan Machine Learning untuk memprediksi respons promosi pelanggan.",
     tags: ["Python", "XGBoost", "TOPSIS"],
     icon: "📊",
+    image: "/projects/marketing-dss.png",
+    link: "#",
   },
   {
     id: 5,
@@ -33,6 +41,8 @@ export const projects = [
     description: "Aplikasi enkripsi teks dan file menggunakan algoritma Vigenere Cipher dengan dua mode: klasik (A-Z) dan byte-wise (0-255).",
     tags: ["Python", "Cryptography"],
     icon: "🔐",
+    image: "/projects/vigivault.png",
+    link: "#",
   },
   {
     id: 6,
@@ -40,6 +50,8 @@ export const projects = [
     description: "Aplikasi DSS untuk Multi Criteria Decision Making menggunakan SAW, WP, AHP, dan TOPSIS.",
     tags: ["Python", "Streamlit", "DSS"],
     icon: "⚖️",
+    image: "/projects/mcdm-calculator.png",
+    link: "#",
   },
   {
     id: 7,
@@ -47,6 +59,8 @@ export const projects = [
     description: "Analisis kesiapan riset mahasiswa menggunakan K-Means, DBSCAN, dan Hierarchical Clustering.",
     tags: ["Python", "Scikit-Learn", "Clustering"],
     icon: "🔬",
+    image: "/projects/segmentasi-riset.png",
+    link: "#",
   },
   {
     id: 8,
@@ -54,5 +68,7 @@ export const projects = [
     description: "Simulasi interaktif kota berkelanjutan dengan tiga mode: Smart City, Tree Growing, dan Green City Simulator.",
     tags: ["Python", "Pygame"],
     icon: "🌆",
+    image: "/projects/neoterra.png",
+    link: "#",
   },
 ];
