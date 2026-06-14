@@ -85,4 +85,15 @@ export const projects = [
     images: ["/projects/neo1.png", "/projects/neo2.png", "/projects/neo3.png", "/projects/neo4.png"],
     link: "https://github.com/senianh/computer-graphics-project.git",
   },
+  {
+    id: 10,
+    title: "Book Review",
+    description:
+      "A web-based book review platform designed for book enthusiasts to discover, share, and discuss book recommendations. Users can register accounts, add books, write reviews, and interact with other readers through comments and discussions.",
+    role: "Full-Stack Developer",
+    tags: ["PHP", "MySQL", "Bootstrap"],
+    icon: "📚",
+    images: ["/projects/book1.png", "/projects/book2.png","/projects/book3.png","/projects/book4.png"],
+    link: "#",
+  }
 ];

@@ -11,11 +11,29 @@ const experiences = [
   {
     title: "Associates of a website",
     organization: "TEDx Padjadjaran University - Website Division (UI/UX Designer)",
-    year: "2026",
+    year: "2026 -  Now",
     image: "/journey/tedx.jpeg",
-    certificate: "/certificate/ifest2025.jpg",
+    certificate: "/journey/tedx.jpeg",
     description:
       "Contributed to the design of TEDxUniversitasPadjadjaran's digital platform by creating intuitive user interfaces and improving user experience. Worked closely with team members to transform ideas into accessible and visually engaging web experiences.",
+  },
+  {
+    title: "Teaching Assistant - Algorithm Analysis",
+    organization: "Computer Science Study Program, Universitas Padjadjaran",
+    year: "2026 - Now",
+    image: "/journey/analgo1.png",
+    certificate: "/journey/analgo2.png",
+    description:
+      "Guided students in learning algorithm design and analysis, including time and space complexity, divide and conquer, greedy algorithms, dynamic programming, and graph algorithms. Facilitated practical sessions, assisted problem solving activities, and helped students develop computational thinking skills.",
+  },
+  {
+    title: "Teaching Assistant - Database Systems II",
+    organization: "Computer Science Study Program, Universitas Padjadjaran",
+    year: "2025",
+    image: "/journey/sisdat1.png",
+    certificate: "/journey/sisdat1.png",
+    description:
+      "Assisted students in understanding advanced database concepts, SQL implementation, database design, normalization, and database management systems. Provided guidance during practical sessions, evaluated assignments, and supported students in solving technical challenges.",
   },
   {
     title: "Department External Relations Staff at HIMATIF",
@@ -35,42 +53,42 @@ const experiences = [
     description:
       "Assisted new students throughout the university orientation program by providing guidance, facilitating group activities, and fostering an inclusive and supportive learning environment during the transition to university life.",
   },
-  {
-    title: "Head of Public Relation Division - IFest 2024",
-    organization: "IFest UNPAD",
-    year: "2024",
-    image: "/journey/ifest1.jpg",
-    certificate: "/certificate/ifest24.png",
-    description:
-      "Led the Public Relations Division in managing external communications, partnerships, and promotional strategies. Coordinated team members, built relationships with sponsors and media partners, and ensured effective dissemination of information to support the success of the event.",
-  },
-  {
-    title: "Vice Head of Public Relation Division - IFest 2025",
-    organization: "IFest UNPAD",
-    year: "2025",
-    image: "/journey/ifest25.png",
-    certificate: "/certificate/ifest25.jpg",
-    description:
-      "Led the Public Relations Division in managing external communications, partnerships, and promotional strategies. Coordinated team members, built relationships with sponsors and media partners, and ensured effective dissemination of information to support the success of the event.",
-  },
-  {
-    title: "Head of Comparative Study Committee yg UI 2025",
-    organization: "HIMATIF UNPAD",
-    year: "2025",
-    image: "/journey/pacil.jpg",
-    certificate: "/certificate/ifest2025.jpg",
-    description:
-      "Led the planning and execution of a comparative study program, coordinating communication with partner institutions and managing committee operations to ensure a productive and meaningful exchange of knowledge and organizational practices.",
-  },
-  {
-    title: "Head of Comparative Study Committee 2025",
-    organization: "HIMATIF UNPAD",
-    year: "2025",
-    image: "/journey/hmsi.jpg",
-    certificate: "/certificate/ifest2025.jpg",
-    description:
-      "Led the planning and execution of a comparative study program, coordinating communication with partner institutions and managing committee operations to ensure a productive and meaningful exchange of knowledge and organizational practices.",
-  },
+  // {
+  //   title: "Head of Public Relation Division - IFest 2024",
+  //   organization: "IFest UNPAD",
+  //   year: "2024",
+  //   image: "/journey/ifest1.jpg",
+  //   certificate: "/certificate/ifest24.png",
+  //   description:
+  //     "Led the Public Relations Division in managing external communications, partnerships, and promotional strategies. Coordinated team members, built relationships with sponsors and media partners, and ensured effective dissemination of information to support the success of the event.",
+  // },
+  // {
+  //   title: "Vice Head of Public Relation Division - IFest 2025",
+  //   organization: "IFest UNPAD",
+  //   year: "2025",
+  //   image: "/journey/ifest25.png",
+  //   certificate: "/certificate/ifest25.jpg",
+  //   description:
+  //     "Led the Public Relations Division in managing external communications, partnerships, and promotional strategies. Coordinated team members, built relationships with sponsors and media partners, and ensured effective dissemination of information to support the success of the event.",
+  // },
+  // {
+  //   title: "Head of Comparative Study Committee yg UI 2025",
+  //   organization: "HIMATIF UNPAD",
+  //   year: "2025",
+  //   image: "/journey/pacil.jpg",
+  //   certificate: "/certificate/ifest2025.jpg",
+  //   description:
+  //     "Led the planning and execution of a comparative study program, coordinating communication with partner institutions and managing committee operations to ensure a productive and meaningful exchange of knowledge and organizational practices.",
+  // },
+  // {
+  //   title: "Head of Comparative Study Committee 2025",
+  //   organization: "HIMATIF UNPAD",
+  //   year: "2025",
+  //   image: "/journey/hmsi.jpg",
+  //   certificate: "/certificate/ifest2025.jpg",
+  //   description:
+  //     "Led the planning and execution of a comparative study program, coordinating communication with partner institutions and managing committee operations to ensure a productive and meaningful exchange of knowledge and organizational practices.",
+  // },
   {
     title: "Decoration Staff - Bandros Gamaban Bandung 2025",
     organization: "Bandros Gamaban Bandung",
@@ -94,7 +112,7 @@ const experiences = [
     organization: "HIMATIF UNPAD",
     year: "2024",
     image: "/journey/dekor.png",
-    certificate: "/certificate/ifest2025.jpg",
+    certificate: "/journey/dekor.png",
     description:
       "Designed and prepared event decorations that aligned with the event theme and atmosphere. Collaborated with team members to create engaging visual environments and enhance participant experiences.",
   },
